@@ -49,4 +49,26 @@ public class AutomationPractice {
         }
         driver.close();
     }
+
+    @Given("Enter the url {string}")
+    public void enter_the_url(String url) {
+        driver.get(url);
+    }
+    @When("student registration page is displayed enter {string}, {string}, {string} and {string}")
+    public void student_registration_page_is_displayed_enter_and(String firstname, String lastname, String email, String phonenumber) {
+        //enter the firstname
+        driver.findElement(By.id("firstName")).sendKeys(firstname);
+        //enter the lastname
+        driver.findElement(By.id("lastName")).sendKeys(lastname);
+        //enter the email
+        driver.findElement(By.id("userEmail")).sendKeys(email);
+        //enter phonenumber
+        driver.findElement(By.id("userNumber")).sendKeys(phonenumber);
+        System.out.println(String.format("firstname: %s, lastname: %s, email: %s, phone: %s", firstname,lastname,email,phonenumber));
+    }
+    @Then("close browser")
+    public void close_browser() {
+        driver.close();
+    }
+
 }
